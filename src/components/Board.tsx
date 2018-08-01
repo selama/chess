@@ -1,11 +1,8 @@
 import * as React from 'react';
-
-interface GameState {
-  turn: 'white' | 'black'
-}
+import {IGameState} from '../types/IGameState';
 
 interface BoardProps {
-  gameState: GameState;
+  gameState: IGameState;
 }
 
 export const Board: React.SFC<BoardProps> = (props) => {
