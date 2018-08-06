@@ -1,9 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import {Provider} from 'mobx-react';
 
-import {App} from "./components/App";
+import {Game} from "./components/game/Game";
+import { GameStore } from "./stores/gameStore";
+
+const gameStore = new GameStore();
 
 ReactDOM.render(
-    <App/>,
+    <Provider gameStore={gameStore}>
+        <Game/>
+    </Provider>,
     document.getElementById("root")
 );
