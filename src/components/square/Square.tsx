@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { GameStore } from '../../stores/gameStore';
 import { observer } from 'mobx-react';
-import { ISquare } from '../../types/ISquare';
+import { SquareModel } from '../../stores/square-model';
 
 interface ISquareProps {
-  square: ISquare;
+  square: SquareModel;
 }
 
 interface ISquareState {
@@ -14,7 +13,7 @@ interface ISquareState {
 export class Square extends React.Component<ISquareProps, ISquareState> {
 
   render() {
-    const {piece} = this.props.square;
-    return <div>{piece ? `${piece.type}---${piece.color}` : `===`}</div>
+    const piece = this.props.square.getPiece();
+    return <div>{piece ? `${piece.getType()}---${piece.getColor()}` : `===`}</div>
   }
 }
