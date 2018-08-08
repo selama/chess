@@ -1,0 +1,12 @@
+.square {
+  width: 80px;
+  height: 80px;
+}
+
+.dark {
+  background-color: chocolate;
+}
+
+.bright {
+  background-color: burlywood;
+}
