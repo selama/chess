@@ -1,9 +1,12 @@
+var CopyWebpackPluginn = require('copy-webpack-plugin');
+
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
       filename: "bundle.js",
-      path: __dirname + "/dist"
+      path: __dirname + "/dist",
+      publicPath: "/"
   },
   devtool: "source-map",
   resolve: {
@@ -35,4 +38,7 @@ module.exports = {
         }
       ]
   },
+  plugins: [
+    new CopyWebpackPluginn([ { from: 'src/assets', to: 'assets' } ])
+  ]
 };

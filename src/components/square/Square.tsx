@@ -2,6 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { SquareModel } from '../../stores/square-model';
 import * as s from './square.css';
+import { Piece } from '../piece/piece';
 
 interface ISquareProps {
   square: SquareModel;
@@ -21,6 +22,6 @@ export class Square extends React.Component<ISquareProps, ISquareState> {
   render() {
     const {square} = this.props;
     const piece = square.getPiece();
-    return <div className={this.getClasses(square)}>{piece ? `${piece.getType()}---${piece.getColor()}` : `===`}</div>
+    return <div className={this.getClasses(square)}>{piece ? <Piece piece={piece}/> : null}</div>
   }
 }
