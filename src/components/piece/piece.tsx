@@ -15,34 +15,45 @@ interface IPieceState {
 @observer
 export class Piece extends React.Component<IPieceProps, IPieceState> {
 
-  getPieceImageSource(piece: PieceModel) {
+  getPieceImage(piece: PieceModel) {
     const imgPath = 'assets';
     const imgExt = 'svg';
     let imgFilename;
+    let className;
     switch (piece.getType()) {
       case PieceType.BISHOP:
         imgFilename =  piece.getColor() === PlayerColor.WHITE ? 'white-bishop' : 'black-bishop';
+        className = s.bishop;
         break;
       case PieceType.ROOK:
         imgFilename =  piece.getColor() === PlayerColor.WHITE ? 'white-rook' : 'black-rook';
+        className = s.rook;
         break;
       case PieceType.KNIGHT:
         imgFilename =  piece.getColor() === PlayerColor.WHITE ? 'white-knight' : 'black-knight';
+        className = s.knight;
         break;
       case PieceType.PAWN:
         imgFilename =  piece.getColor() === PlayerColor.WHITE ? 'white-pawn' : 'black-pawn';
+        className = s.pawn;
         break;
       case PieceType.KING:
         imgFilename =  piece.getColor() === PlayerColor.WHITE ? 'white-king' : 'black-king';
+        className = s.king;
         break;
       case PieceType.QUEEN:
         imgFilename =  piece.getColor() === PlayerColor.WHITE ? 'white-queen' : 'black-queen';
+        className = s.queen;
         break;
     }
-    return `${imgPath}/${imgFilename}.${imgExt}`;
+    return {
+      src: `${imgPath}/${imgFilename}.${imgExt}`,
+      className
+    };
   }
 
   render() {
-    return <div><img className={s.piece} src={this.getPieceImageSource(this.props.piece)} /></div>
+    const {src, className} = this.getPieceImage(this.props.piece)
+    return <div><img className={className} src={src} /></div>
   }
 }

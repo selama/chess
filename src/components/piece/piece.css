@@ -1,3 +1,23 @@
-.piece {
-  height: 70px;
+.pawn {
+  height: 55px;
+}
+
+.knight {
+  height: 60px;
+}
+
+.bishop {
+  height: 60px;
+}
+
+.rook {
+  height: 60px;
+}
+
+.king {
+  height: 75px;
+}
+
+.queen {
+  height: 75px;
 }
